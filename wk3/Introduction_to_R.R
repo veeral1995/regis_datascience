@@ -68,18 +68,55 @@ plot(df[,1:4], main = "Edgar Anderson's Iris Data", pch = 21, bg = c("red", "gre
 #### Your Turn ####
 
 # Show the first 3 rows of the data
-df[3,]
+df[1:3,]
 
-# Show the first 10 rows if species = versicolor
+# Show the first 10 rows of species = versicolor
 
-# What is the stadard deviation of petal length of each species?
+top10 <- df[df$Species=="versicolor"]
+top10[1:10,]
+
+# What is the standard deviation of petal length of each species?
+versicolor <- df[df$Species=="versicolor"]
+setosa <- df[df$Species=="setosa"]
+virginica <- df[df$Species=="virginica"]
+
+sd(versicolor$Petal.Length)
+sd(setosa$Petal.Length)
+sd(virginica$Petal.Length)
 
 # What is the maximum petal width of each species?
 
+max(versicolor$Petal.Width)
+max(setosa$Petal.Width)
+max(virginica$Petal.Width)
+
 # What is the average petal length of each species?
+
+mean(versicolor$Petal.Length)
+mean(setosa$Petal.Length)
+mean(virginica$Petal.Length)
 
 # What is the average petal width to average sepal width ratio for each species?
 
+
+verAvgWidth <- mean(versicolor$Petal.Width)
+setAvgWidth <- mean(setosa$Petal.Width)
+virAvgWidth <- mean(virginica$Petal.Width)
+
+
+verSepAvgWidth <- mean(versicolor$Sepal.Width)
+setSepAvgWidth <- mean(setosa$Sepal.Width)
+virSepAvgWidth <- mean(virginica$Sepal.Width)
+
+verAvgWidth/verSepAvgWidth
+setAvgWidth/setSepAvgWidth
+virAvgWidth/virSepAvgWidth
+
 # Create a histrogram of petal length. Include a title and x-label
 
+pLenHist <- df$Petal.Length
+hist(pLenHist, main="Petal Length Histogram", xlab="Petal Length")
+
 # Create a box of petal width. Include a title and x-label
+pWidthBox <- df$Petal.Width
+boxplot(pWidthBox, main="Box Plot by Petal Width", xlab="Petal Width")

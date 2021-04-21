@@ -1,0 +1,74 @@
+---
+title: "Week 4 Assingment"
+author: "Kellen Sorauf"
+date: "February 4, 2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+# **This is R Markdown**
+#### You can create nice publishable documents using R Markdown
+You should be comfortable using R Markdown for your R assignments.  
+You can find cheatsheets for R Markdown here
+https://rmarkdown.rstudio.com/lesson-1.html
+
+### Let's begin the assignment.
+Import the data.table and ggplot2 packages.  If they are not already installed install: 
+install.packages('ggplot2') install.packages('data.table')
+
+```{r setup, warning=FALSE, echo=TRUE}
+library(data.table)
+library(ggplot2)
+```
+
+Import the Binomial.csv data. There are many ways import a .csv file, but fread() will import it as a data.table
+
+```{r import data, echo = TRUE}
+bi <- fread('C:/Users/ksorauf/OneDrive - Regis University/MSDS 600/19S8W1/Week 4/Data/Binomial.csv')
+```
+
+Calculate summary statistics and standard deviation. Plot the data as a scatter plot, histogram, and boxplot
+
+```{r Binomial summary statistics and plots, echo=TRUE}
+
+summary(bi)
+
+sd(bi$V1)
+
+plot(bi$V1, xlab = 'bi Index', ylab = 'bi values', main = 'Scatter plot of the Binomial dataset')
+
+hist(bi$V1, xlab = 'bi values', ylab = 'Frequency of bi values', main = 'Histogram of the Binomial dataset')
+
+boxplot(bi, xlab = 'bi', ylab = 'bi values', main = 'Boxplot of the Binomial dataset')
+```
+
+Load the six datasets in the week 4 materials.  Compute a set of descriptive statistics for each; including mean, standard deviation, minimum, maximum, a histogram plot, and any other descriptive statistic you might find meaningful - include these in your write-up.
+
+Import the Ln.csv data.
+Calculate summary statistics and standard deviation. Plot the data as a scatter plot, histogram, and boxplot.
+
+```{r LN summary statistics and plots, echo=FALSE}
+
+```
+
+Import the BN1.csv and BN2.csv data and calculate summary statistics, standard deviation and plot the histograms individually. 
+Plot the BN1 and BN2 together on one graph as a scatter plot, and as boxplots.
+
+```{r BN summary statistics and plots, echo=FALSE}
+
+```
+
+Import the N1.csv and N2.csv data and calculate summary statistics, standard deviation and plot the histograms individually. 
+Plot the BN1 and BN2 together on one graph as a scatter plot, and as boxplots.
+
+```{r N summary statistics and plots, echo=FALSE}
+
+```
+
+What, if anything, can be said about the differences between N1 & N2?
+
+Similarly, what can be said about the differences between BN1 & BN2?
+
+What are the differences in the distributions, how do the outliers differ, what are the differences in the means, range, etc?
+
+When considering the vector individually, check if the distribution is normal or not -- which stats would you use to determine this? 
